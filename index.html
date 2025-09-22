@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Roll Dice</title>
+<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <div id="page-overlay"></div>
+    <header>
+         <h1 class="google-title">
+    <span class="g">G</span>
+    <span class="o1">o</span>
+    <span class="o2">o</span>
+    <span class="g2">g</span>
+    <span class="l">l</span>
+    <span class="e">e</span>
+  </h1>
+        <div class="right-container">
+            <button class="icon-bell" >
+               
+
+            </button>
+             <img src="lonceng.png" alt="Profile" class="lonceng-img">
+            <img src="pp.jpg" alt="Profile" class="profile-img">
+           
+        </div>
+        
+        <div class="left-container">
+             <img src="lab.png" alt="Profile" class="profile-imglab">
+        </div>
+        
+<div id="search-form">
+  <form class="search-container" method="GET">
+    <button type="submit">
+      <span class="material-icons">search</span>
+    </button>
+
+    <input 
+      type="text" 
+      id="search-input" 
+      name="ref" 
+      placeholder="Cari sesuatu di sini..." 
+      value=""
+    >
+
+
+    <!-- g lens dan vn dalam 1 grup -->
+    <div class="icon-group">
+      <button type="button" id="clear-btn">
+        <span class="material-icons">
+          <img src="vn.png" alt="Lens"/>
+        </span>
+      </button>
+      <img class="vn" src="g lens.png" alt="VN"/>
+    </div>
+  </form>
+</div>
+
+
+    </header>
+
+    <nav>
+        <a href="#" class="active">Semua</a>
+        <a href="#" class="nonactive">Shopping</a>
+        <a href="#" class="nonactive">Gambar</a>
+        <a href="#" class="nonactive">Video</a>
+        <a href="#" class="nonactive">Video singkat</a>
+    </nav>
+
+    <main>
+
+
+        <div class="search-result">
+            <p>Lempar dadu</p>
+            <img class="bagikan" src="bagikan.png" />
+        </div>
+
+        <!-- Canvas Biru -->
+<div class="canvas-container" id="canvas-container">
+    <!-- Kamu bisa menambahkan konten di dalam canvas ini -->
+     <div id="dice-container" style="position: relative; width: 400px; height: 250px;"></div>
+<div class="dice3d-wrapper" id="dice3d-wrapper "></div>
+ <div id="dice-grid"></div>
+
+
+<div class="total1" id="totalBox"></div>
+     <div class="alltotal">
+        
+        <div id="total" class="total" >
+          
+            Total<p style="color: #ff000000;">:</p> 
+            
+            <span id="total-value"> 0</span>
+            
+        </div>
+     </div>  
+    
+</div>
+
+
+
+
+
+        <div class="dice-container">
+            <div class="dice triangle" data-shape="triangle" data-sides="4"><p style="  position: absolute;
+  bottom: 3px;
+  margin: 0;">4</p></div>
+            <div class="dice square" id="6" type="button"  data-shape="square" data-sides="6" > <p>6</p></div>
+            <div class="dice pentagon" data-shape="pentagon" data-sides="8"><p>8</p></div>
+            <div class="dice hexagon" data-shape="hexagon" data-sides="10"><p>10</p></div>
+            <div class="dice septagon" data-shape="septagon" data-sides="12"><p>12</p></div>
+            <div class="dice bintang" data-shape="bintang" data-sides="20"><p>20</p></div>
+            <div class="dice lintang" data-shape="lintang" data-sides="6">|</div>
+            <div class="dice1 plus-minus" data-shape="circle" data-sides="6">±</div>
+        </div>
+
+        <button id="roll-button" onclick="rollDice(document.getElementById('dice'), Math.ceil(Math.random() * 6))">Lempar</button>
+
+    
+
+<div class="result-card">
+    <div class="arrow-container">
+        <span>Tampilkan Lebih Banyak</span>
+        <div class="arrow-down"></div>
+    </div>
+</div>
+
+
+        <div class="result-card1">
+            <img src="cr.png" alt="Logo" class="profile-img1">
+            <div class="content">
+                <div class="titik">
+                    <span class="menu-dots">⋮</span>
+                </div>
+                <p class="title">Calculator.net</p>
+                <p class="description1">https://www.calculator.net/dice-roller.html</p>
+                <h2 class="title1">Virtual Dice Roller</h2>
+                <p class="description">
+                    This virtual dice roller can have any number of faces and can generate random numbers simulating a
+                    dice
+                    roll based on the number of faces and dice.
+                </p>
+            </div>
+        </div>
+
+        <div class="result-card1">
+            <img src="st.jpg" alt="Logo" class="profile-img1">
+            <div class="content">
+                <div class="titik">
+                    <span class="menu-dots">⋮</span>
+                </div>
+                <h2 class="title">Online Stopwatch</h2>
+                <p class="description1">https://www.online-stopwatch.com/chance-games/roll-a-dice/</p>
+                <h2 class="title1">Random Dice!</h2>
+                <p class="description">
+                    An Online Random Dice! Choose how many dice you need - from 1 to 10 and let them roll! Easy to use -
+                    with
+                    a random result every time! Try more Chance Games!
+                </p>
+            </div>
+        </div>
+
+        <div class="result-card1">
+            <img src="roll.png" alt="Logo" class="profile-img1">
+            <div class="content">
+                <div class="titik">
+                    <span class="menu-dots">⋮</span>
+                </div>
+                <h2 class="title">Roll a Die</h2>
+                <p class="description1">https://rolladie.net/</p>
+                <h2 class="title1">Roll a Die</h2>
+                <p class="description">
+                    A dice app with start and stop to give you way more options that you will need for your dice games.
+                    Multiple screens, totals, history and more. ‎D20 · ‎Roll 2 Dice · ‎Roll 6 Dice · ‎Roll 4 Dice
+                </p>
+            </div>
+        </div>
+
+        <div class="result-card1">
+            <img src="R.png" alt="Logo" class="profile-img1">
+            <div class="content">
+                <div class="titik">
+                    <span class="menu-dots">⋮</span>
+                </div>
+                <h2 class="title">Random.org</h2>
+                <p class="description1">https://www.random.org/dice/</p>
+                <h2 class="title1">RANDOM.ORG-dice_Roller</h2>
+                <p class="description">
+                    This page allows you to roll virtual dice using true randomness, which for many purposes is better
+                    than
+                    the pseudo-random number algorithms typically used.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script  src="main.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Atur Dadu</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background text */
+    .bg-text {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.616);
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .bg-sub {
+      position: absolute;
+      top: 88%;
+      left: 60%;
+      transform: translateX(-70%);
+      font-size: 2rem;
+      font-weight: 300;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.648);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+.container {
+      background: linear-gradient(145deg, #111, #1a1a1a);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7),
+                  inset 0 0 15px rgba(255, 255, 255, 0.406);
+      width: 95%;
+    height: 95%;
+      max-width: 650px;
+      max-height: 550px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+
+       h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.765);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 8px;
+      font-size: 1.3rem;
+      text-align: left;
+      color: #ddd;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.3rem;
+      border: 1px solid #333;
+      border-radius: 14px;
+      outline: none;
+      background: #0a0a0a;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      border: 1px solid #ffffff;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.79);
+      transform: scale(1.03);
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 18px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #000000, #000000);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 22px rgba(255, 255, 255, 0.7);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Text -->
+  <div class="bg-text">Money Talks We Translate</div>
+  <div class="bg-sub">CE0,000,000</div>
+
+  <!-- Form Container -->
+  <div class="container">
+    <h2>🎲 Pengaturan Dadu</h2>
+
+    <label>Jumlah Dadu:</label>
+    <input type="number" id="diceCount" value="9" min="1"><br><br>
+
+    <label>Total Target:</label>
+    <input type="number" id="targetTotal" value="33" min="1"><br><br>
+
+    <button onclick="simpanData()">💾 Simpan</button>
+  </div>
+
+  <script>
+    function simpanData() {
+      const count = parseInt(document.getElementById("diceCount").value);
+      const total = parseInt(document.getElementById("targetTotal").value);
+
+      localStorage.setItem("diceCount", count);
+      localStorage.setItem("targetTotal", total);
+
+      alert("✅ Data disimpan! Silakan buka halaman utama.");
+    }
+  </script>
+</body>
+</html>

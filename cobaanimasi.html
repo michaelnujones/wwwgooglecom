@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dice3d-wrapper {
+  perspective: 800px;
+  width: 100px;
+  height: 100px;
+}
+
+.dice3d {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgb(55, 0, 255);
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.front  { transform: rotateY(0deg) translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    </style>
+</head>
+<body>
+    <div class="dice3d-wrapper">
+  <div class="dice3d" id="dice">
+    <div class="face front"><span class="number">1</span></div>
+    <div class="face back"><span class="number">6</span></div>
+    <div class="face right"><span class="number">3</span></div>
+    <div class="face left"><span class="number">4</span></div>
+    <div class="face top"><span class="number">5</span></div>
+    <div class="face bottom"><span class="number">2</span></div>
+  </div>
+</div>
+<button onclick="rollDice(document.getElementById('dice'), Math.ceil(Math.random() * 6))">Roll!</button>
+
+</body>
+<script > 
+    function rollDice(diceEl, result) {
+  const randX = Math.floor(Math.random() * 24) + 3; // putaran acak
+  const randY = Math.floor(Math.random() * 24) + 3;
+
+  const faceRotation = {
+    1: { x: 0,   y: 0   },
+    2: { x: -90, y: 0   },
+    3: { x: 0,   y: -90 },
+    4: { x: 0,   y: 90  },
+    5: { x: 90,  y: 0   },
+    6: { x: 180, y: 0   },
+  };
+
+  const final = faceRotation[result];
+  const rotateX = (360 * randX) + final.x;
+  const rotateY = (360 * randY) + final.y;
+
+  diceEl.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+
+</script>
+</html>
